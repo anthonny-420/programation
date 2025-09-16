@@ -1,66 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>piedra, papel o tijera</title>
     <script>
-        // variables de mi juego: 1 piedra, 2 papel, 3 tijera
-        // jugador = 0, pc = depende del caso que queramos
-        function aleatorio (min, max) {
-            return Math.floor(Math.random() * (max - min + 1) + min);
-        }
-        let jugador = 0;
-        let pc = aleatorio(1, 3);
-        jugador = prompt("Puedes elegir entre: 1 = piedra, 2 = papel, 3 = tijera");
-        if (jugador == 1 ) {
-            alert("Has elegido piedra 🪨")
-        } else if (jugador == 2) {
-            alert ("Has elegido papel 🧻")
-        } else if (jugador == 3) {
-            alert ("Has elegido tijera ✂️")
-        } else {
-            alert ("la opcion que elegiste no es correcta, Elige una opcion valida")
-        }
-        if ( pc == 1 ) {
-            alert("pc elegio piedra 🪨")
-        } else if ( pc == 2) {
-            alert ("pc elegio papel 🧻")
-        } else if ( pc == 3) {
-            alert ("pc elegio tijera ✂️")
-        }
+      // jugador = 0, pc = depende del caso que queramos
+      function aleatorio(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      }
 
-//         inicio de nuestro combate (de manera descriptiva)
-//
-//        if (jugador == pc) {
-//          alert("Empate, hemos elegido la misma opción")
-//        } else if (jugador == 1 && pc == 2) {
-//          alert ("Has perdido, papel le gana a la piedra") 
-//        } else if (jugador == 1 && pc == 3) {
-//          alert ("Has ganado, la piedra le gana a la tijera")
-//        } else if( jugador == 2  && pc == 1) {
-//          alert ("Has ganado, el papel le gana a la piedra")
-//        } else if (jugador == 2 && pc == 3) {
-//          alert ("Has perdido, la tijera le gana al papel")
-//        } else if (jugador == 3 && pc == 2) {
-//          alert ("Has ganado, la tijera le gana al papel")
-//        } else if (jugador == 3 && pc == 1) {
-//          alert ("Has perdido, la piedra le gana a la tijera")
-//        }
-//        else {
-//          alert ("esa combinacion no existe")
-//        }
-
-        if (jugador == pc ) {
-            alert (" Empate, hemos elegido la misma opción")
-        } else if ((jugador == 1 && pc == 3) || (jugador == 2 && pc == 1) || (jugador == 3 && pc == 2)) {
-            alert ("Has ganado")
+      function election(jugada) {
+        let resultado = "";
+        if (jugada == 1) {
+          resultado = "Piedra 🪨";
+        } else if (jugada == 2) {
+          resultado = "Papel 🧻";
+        } else if (jugada == 3) {
+          resultado = "Tijera ✂️";
         } else {
-            alert ("Has perdido")
+          resultado = "Valor Inexistente";
         }
+        return resultado
+      }
+
+      // variables de mi juego: 1 piedra, 2 papel, 3 tijera
+      let jugador = 0;
+      let pc = aleatorio(1, 3);
+      jugador = prompt(
+        "Puedes elegir entre: 1 = piedra, 2 = papel, 3 = tijera"
+      );
+       
+      alert("Tu eliges: " + election(jugador))
+      alert("PC elige: " + election(pc))
+
+      // COMBATE
+      if (jugador == pc) {
+        alert(" Empate, hemos elegido la misma opción");
+      } else if (
+        (jugador == 1 && pc == 3) || (jugador == 2 && pc == 1) || (jugador == 3 && pc == 2)
+      ) {
+        alert("Has ganado");
+      } else {
+        alert("Has perdido");
+      }
     </script>
-</head>
-<body>
-   <h1>piedra, papel o tijera</h1> 
-</body>
+  </head>
+  <body>
+    <h1>piedra, papel o tijera</h1>
+  </body>
 </html>
