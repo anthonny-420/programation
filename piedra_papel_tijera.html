@@ -4,47 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>piedra, papel o tijera</title>
-    <script>
-      // jugador = 0, pc = depende del caso que queramos
-      function aleatorio(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-      }
-
-      function election(jugada) {
-        let resultado = "";
-        if (jugada == 1) {
-          resultado = "Piedra 🪨";
-        } else if (jugada == 2) {
-          resultado = "Papel 🧻";
-        } else if (jugada == 3) {
-          resultado = "Tijera ✂️";
-        } else {
-          resultado = "Valor Inexistente";
-        }
-        return resultado
-      }
-
-      // variables de mi juego: 1 piedra, 2 papel, 3 tijera
-      let jugador = 0;
-      let pc = aleatorio(1, 3);
-      jugador = prompt(
-        "Puedes elegir entre: 1 = piedra, 2 = papel, 3 = tijera"
-      );
-       
-      alert("Tu eliges: " + election(jugador))
-      alert("PC elige: " + election(pc))
-
-      // COMBATE
-      if (jugador == pc) {
-        alert(" Empate, hemos elegido la misma opción");
-      } else if (
-        (jugador == 1 && pc == 3) || (jugador == 2 && pc == 1) || (jugador == 3 && pc == 2)
-      ) {
-        alert("Has ganado");
-      } else {
-        alert("Has perdido");
-      }
-    </script>
+    <script src="js/codigo.js"></script> 
   </head>
   <body>
     <h1>piedra, papel o tijera</h1>
