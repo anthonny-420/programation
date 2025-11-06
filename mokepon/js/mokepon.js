@@ -1,6 +1,18 @@
+let playerAttack 
+let enemyAttack
+let battleResult
 function gameStart() {
     let petPlayerButton = document.getElementById('pet-button');
     petPlayerButton.addEventListener('click', petPlayerSelection);
+
+    // attack's buttons 
+    let FireButton = document.getElementById('fire-button')
+    FireButton.addEventListener('click', fireAttack)
+    let WaterButton = document.getElementById('water-button')
+    WaterButton.addEventListener('click', waterAttack)
+    let LandButton = document.getElementById('land-button')
+    LandButton.addEventListener('click', landAttack)
+
 }
 
 function petPlayerSelection() {
@@ -11,14 +23,11 @@ function petPlayerSelection() {
 
     if (inputHipodoge.checked) {
         spanPetPlayer.innerHTML = 'Hipodoge';
-    }
-    else if (inputCapipepo.checked) {
+    } else if (inputCapipepo.checked) {
         spanPetPlayer.innerHTML = 'Capipepo';
-    }
-    else if (inputRatigueya.checked) {
+    } else if (inputRatigueya.checked) {
         spanPetPlayer.innerHTML = 'Ratigueya';
-    }
-    else {
+    } else {
     alert("YOU MUST SELECT ONE PET");
     }
 
@@ -26,17 +35,69 @@ function petPlayerSelection() {
 }
 
 function petEnemySelection () {
-    let randomAttack = random(1,3);
+    let randomPet = random(1,3);
     let spanPetEnemyName = document.getElementById('petEnemyName')
-    if (randomAttack == 1) {
+    if (randomPet == 1) {
         spanPetEnemyName.innerHTML = 'Hipodoge';
-    }
-    else if (randomAttack == 2) {
+    } else if (randomPet == 2) {
         spanPetEnemyName.innerHTML = 'Capipepo';
-    }
-    else {
+    } else {
         spanPetEnemyName.innerHTML = 'Ratigueya';
     }
+}
+
+// attack's messages
+
+function fireAttack () {
+    playerAttack = 'FIRE'
+    randomEnemyAttack()
+}
+
+function waterAttack () {
+    playerAttack = 'WATER'
+    randomEnemyAttack()
+}
+
+function landAttack () {
+    playerAttack = 'LAND'
+    randomEnemyAttack()
+}
+
+function randomEnemyAttack() {
+    let randomAttack = random(1,3)
+    if (randomAttack == 1) {
+        enemyAttack = 'FIRE'
+    } else if (randomAttack == 2) {
+        enemyAttack = 'WATER'
+    } else {
+        enemyAttack = 'LAND'
+    }
+
+    combat()
+}
+
+function combat () {
+    if (playerAttack == enemyAttack) {
+        createMessage("!TIE¡")
+    } else if (playerAttack == 'FIRE' && enemyAttack  == 'LAND' ) {
+        createMessage("!YOU HAVE WON¡")
+    } else if (playerAttack == 'LAND' && enemyAttack == 'WATER') {
+        createMessage("!YOU HAVE WON¡")
+    } else if (playerAttack == 'WATER' && enemyAttack == 'FIRE') {
+        createMessage("!YOU HAVE WON¡")
+    } else {
+        createMessage("!YOU HAVE LOST¡")
+    }
+}
+
+function createMessage (battleResult) {
+
+    let messageSection = document.getElementById('messages')
+    
+    paragraph = document.createElement('p')
+    paragraph.innerHTML = "your pet has attacked with " + playerAttack + ", the enemy's pet has attacked with " + enemyAttack + " " + battleResult
+     
+    messageSection.appendChild(paragraph)
 }
 
 function random (min, max) {
