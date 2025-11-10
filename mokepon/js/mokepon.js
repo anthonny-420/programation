@@ -1,6 +1,9 @@
 let playerAttack 
 let enemyAttack
 let battleResult
+let playerLives = 3;
+let enemyLives = 3;
+
 function gameStart() {
     let petPlayerButton = document.getElementById('pet-button');
     petPlayerButton.addEventListener('click', petPlayerSelection);
@@ -19,7 +22,7 @@ function petPlayerSelection() {
     let inputHipodoge = document.getElementById('Hipodoge');
     let inputCapipepo = document.getElementById('Capipepo');
     let inputRatigueya = document.getElementById('Ratigueya');
-    let spanPetPlayer = document.getElementById('petPlayer');
+    let spanPetPlayer = document.getElementById('pet-player');
 
     if (inputHipodoge.checked) {
         spanPetPlayer.innerHTML = 'Hipodoge';
@@ -36,13 +39,13 @@ function petPlayerSelection() {
 
 function petEnemySelection () {
     let randomPet = random(1,3);
-    let spanPetEnemyName = document.getElementById('petEnemyName')
+    let spanPetEnemy = document.getElementById('pet-enemy')
     if (randomPet == 1) {
-        spanPetEnemyName.innerHTML = 'Hipodoge';
+        spanPetEnemy.innerHTML = 'Hipodoge';
     } else if (randomPet == 2) {
-        spanPetEnemyName.innerHTML = 'Capipepo';
+        spanPetEnemy.innerHTML = 'Capipepo';
     } else {
-        spanPetEnemyName.innerHTML = 'Ratigueya';
+        spanPetEnemy.innerHTML = 'Ratigueya';
     }
 }
 
@@ -77,16 +80,27 @@ function randomEnemyAttack() {
 }
 
 function combat () {
+    let spanPlayerLives = document.getElementById('player-lives')
+    let spanEnemyLives = document.getElementById('enemy-lives')
+
     if (playerAttack == enemyAttack) {
         createMessage("!TIE¡")
     } else if (playerAttack == 'FIRE' && enemyAttack  == 'LAND' ) {
         createMessage("!YOU HAVE WON¡")
+        enemyLives--
+        spanEnemyLives.innerHTML = enemyLives
     } else if (playerAttack == 'LAND' && enemyAttack == 'WATER') {
         createMessage("!YOU HAVE WON¡")
+        enemyLives--
+        spanEnemyLives.innerHTML = enemyLives
     } else if (playerAttack == 'WATER' && enemyAttack == 'FIRE') {
         createMessage("!YOU HAVE WON¡")
+        enemyLives--
+        spanEnemyLives.innerHTML = enemyLives
     } else {
         createMessage("!YOU HAVE LOST¡")
+        playerLives--
+        spanPlayerLives.innerHTML = playerLives;
     }
 }
 
