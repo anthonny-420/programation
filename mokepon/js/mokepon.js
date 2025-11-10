@@ -67,7 +67,7 @@ function landAttack () {
 }
 
 function randomEnemyAttack() {
-    let randomAttack = random(1,3)
+    let randomAttack = random(1,3);
     if (randomAttack == 1) {
         enemyAttack = 'FIRE'
     } else if (randomAttack == 2) {
@@ -80,8 +80,8 @@ function randomEnemyAttack() {
 }
 
 function combat () {
-    let spanPlayerLives = document.getElementById('player-lives')
-    let spanEnemyLives = document.getElementById('enemy-lives')
+    let spanPlayerLives = document.getElementById('player-lives');
+    let spanEnemyLives = document.getElementById('enemy-lives');
 
     if (playerAttack == enemyAttack) {
         createMessage("!TIE¡")
@@ -102,14 +102,36 @@ function combat () {
         playerLives--
         spanPlayerLives.innerHTML = playerLives;
     }
+
+    checkLives()
+}
+
+function checkLives() {
+    if (enemyLives == 0) {
+        // I won
+       createFinalMessage("I've won the match")
+    } else if (playerLives == 0) {
+//         The enemy won
+        createFinalMessage("The enemy has won the match")
+    }
 }
 
 function createMessage (battleResult) {
 
-    let messageSection = document.getElementById('messages')
+    let messageSection = document.getElementById('messages');
     
-    paragraph = document.createElement('p')
-    paragraph.innerHTML = "your pet has attacked with " + playerAttack + ", the enemy's pet has attacked with " + enemyAttack + " " + battleResult
+    paragraph = document.createElement('p');
+    paragraph.innerHTML = "your pet has attacked with " + playerAttack + ", the enemy's pet has attacked with " + enemyAttack + " " + battleResult;
+     
+    messageSection.appendChild(paragraph)
+}
+
+function createFinalMessage (finalResult) {
+
+    let messageSection = document.getElementById('messages');
+    
+    paragraph = document.createElement('p');
+    paragraph.innerHTML = finalResult
      
     messageSection.appendChild(paragraph)
 }
