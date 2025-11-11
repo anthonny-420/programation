@@ -8,13 +8,17 @@ function gameStart() {
     let petPlayerButton = document.getElementById('pet-button');
     petPlayerButton.addEventListener('click', petPlayerSelection);
 
-    // attack's buttons 
-    let FireButton = document.getElementById('fire-button')
+    // attacks buttons 
+    let FireButton = document.getElementById('fire-button');
     FireButton.addEventListener('click', fireAttack)
-    let WaterButton = document.getElementById('water-button')
+    let WaterButton = document.getElementById('water-button');
     WaterButton.addEventListener('click', waterAttack)
-    let LandButton = document.getElementById('land-button')
+    let LandButton = document.getElementById('land-button');
     LandButton.addEventListener('click', landAttack)
+    let rebootButton = document.getElementById('reboot-button')
+
+    // reboot button
+    rebootButton.addEventListener('click', rebootGame)
 
 }
 
@@ -52,28 +56,28 @@ function petEnemySelection () {
 // attack's messages
 
 function fireAttack () {
-    playerAttack = 'FIRE'
+    playerAttack = 'FIRE';
     randomEnemyAttack()
 }
 
 function waterAttack () {
-    playerAttack = 'WATER'
+    playerAttack = 'WATER';
     randomEnemyAttack()
 }
 
 function landAttack () {
-    playerAttack = 'LAND'
+    playerAttack = 'LAND';
     randomEnemyAttack()
 }
 
 function randomEnemyAttack() {
     let randomAttack = random(1,3);
     if (randomAttack == 1) {
-        enemyAttack = 'FIRE'
+        enemyAttack = 'FIRE';
     } else if (randomAttack == 2) {
-        enemyAttack = 'WATER'
+        enemyAttack = 'WATER';
     } else {
-        enemyAttack = 'LAND'
+        enemyAttack = 'LAND';
     }
 
     combat()
@@ -108,10 +112,8 @@ function combat () {
 
 function checkLives() {
     if (enemyLives == 0) {
-        // I won
        createFinalMessage("I've won the match")
     } else if (playerLives == 0) {
-//         The enemy won
         createFinalMessage("The enemy has won the match")
     }
 }
@@ -134,6 +136,19 @@ function createFinalMessage (finalResult) {
     paragraph.innerHTML = finalResult
      
     messageSection.appendChild(paragraph)
+
+    // disable attack buttons
+
+    let FireButton = document.getElementById('fire-button');
+    FireButton.disabled = true
+    let WaterButton = document.getElementById('water-button');
+    WaterButton.disabled = true
+    let LandButton = document.getElementById('land-button');
+    LandButton.disabled = true
+}
+
+function rebootGame() {
+    location.reload();
 }
 
 function random (min, max) {
