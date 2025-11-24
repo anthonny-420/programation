@@ -1,6 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Chela+One&family=Poiret+One&display=swap");
+
+body {
+  font-family: "Poiret One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #473472;
+}
+
+#pet-selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 #title {
-    color: #27F5D3;
-    width: 320px;
-    height: 50px;
-    background-color:black;
+  font-family: "Chela One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: #ffffff;
+  font-size: 70px;
+}
+
+.subtitle {
+  color: #ffffff;
+  font-size: 30px;
+}
+
+.cards {
+  display: flex;
+  gap: 10px;
+}
+
+.mokepon-cards {
+  width: 150px;
+  height: 100px;
+  background: #53629e;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.mokepon-cards img {
+  width: 80px;
+}
+
+#pet-button {
+  margin: 20px 0px 0px 0px;
+  width: 120px;
+  height: 45px;
+  border-radius: 20px;
+  background-color: transparent;
+  border: 2px solid #87bac3;
+  color: #ffff;
+  font-family: "Poiret One", sans-serif;
+}
+
+input {
+  display: none;
+}
+
+#attack-selection {
+  flex-direction: column;
+  align-items: center;
+}
+
+.attack-buttons {
+  background-color: #53629e;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border-color: transparent;
+  width: 140px;
+  font-family: "Poiret One", sans-serif;
+  font-size: 15px;
+  color: #ffffff;
 }

@@ -1,62 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOKEPON!</title>
-    <script src="./js/mokepon.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOKEPON!</title>
+  <script src="./js/mokepon.js"></script>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
+
 <body>
-   <h1>MOKEPON! 🔥💧🪴</h1>
+  <section id="pet-selection">
+    <h1 id="title">Mokepon</h1>
+    <h2 class="subtitle">Which one will be your pet?</h2>
 
-   <section id="pet-selection">
-        <h2> Which one will be your pet? </h2>
-        
-        <!--PETS-->
-        <label for="Hipodoge">Hipodoge</label>
-        <input type="radio" name="pets" id="Hipodoge"/>
+    <div class="cards">
+      <!--PETS-->
+      <label class="mokepon-cards" for="Hipodoge">
+        <p>Hipodoge</p>
+        <img src="./assets/mokepons_mokepon_hipodoge_attack.webp" alt="Hipodoge">
+      </label>
+      <input type="radio" name="pets" id="Hipodoge" />
 
-        <label for="Capipepo">Capipepo</label>
-        <input type="radio" name="pets" id="Capipepo"/>
+      <label class="mokepon-cards" for="Capipepo">
+        <p>Capipepo</p>
+        <img src="./assets/mokepons_mokepon_capipepo_attack.webp" alt="Capipepo">
+      </label>
+      <input type="radio" name="pets" id="Capipepo" />
 
-        <label for="Ratigueya">Ratigueya</label>
-        <input type="radio" name="pets" id="Ratigueya"/>
+      <label class="mokepon-cards" for="Ratigueya">
+        <p>Ratigueya</p>
+        <img src="./assets/mokepons_mokepon_ratigueya_attack.webp" alt="Ratigueya">
+      </label>
+      <input type="radio" name="pets" id="Ratigueya" />
+    </div>
 
-<!--        <label for="Langostelvis">Langostelvis</label>
-        <input type="radio" name="pets" id="Langostelvis"/>-->
+    <button id="pet-button">Selection</button>
+  </section>
 
-        <!--Hipodoge water
-        Capipepo -> land
-        Ratigueya -> fire
-        Langostelvis -> water and fire
-        Tucapalma -> water and land
-        Pydos -> land and fires
-        
--->
+  <section id="attack-selection">
+    <h1 id="title">Mokepon</h1>
+    <h2 class="subtitle">Now, you must choose one attack:</h2>
 
-        <button id="pet-button">Selection</button>
+    <div>
+      <button id="fire-button" class="attack-buttons">fire 🔥</button>
+      <button id="water-button" class="attack-buttons">water 💧</button>
+      <button id="land-button" class="attack-buttons">land 🪴</button>
+    </div>
 
-   </section>
+    <div>
+      <section id="messages">
+      </section>
 
-   <section id="attack-selection">
-        <h2>Now, you must choose a attack:</h2>
-
-        <p>Your pet <span id="pet-player"></span> has <span id="player-lives">3</span> lives</p>
-        <p>The enemy's pet <span id="pet-enemy"></span> has <span id="enemy-lives">3</span> lives</p>
-
-        <div>
-            <button id="fire-button">fire 🔥</button>
-            <button id="water-button">water 💧</button>
-            <button id="land-button">land 🪴</button>
-        </div>
-   </section>
-   
-   <section id="messages">
-<!--     <p>your pet has attacked with FIRE, the enemy's pet has attacked with LAND, !YOU WON 🎉¡</p> -->
-   </section>
-
-   <section id="reboot">
+      <section id="reboot">
         <button id="reboot-button">reboot</button>
-   </section>
+      </section>
+    </div>
+
+    <div>
+      <p>
+        Your pet <span id="pet-player"></span> has
+        <span id="player-lives">3</span> lives
+      </p>
+      <p>
+        The enemy's pet <span id="pet-enemy"></span> has
+        <span id="enemy-lives">3</span> lives
+      </p>
+    </div>
+
+  </section>
+
 </body>
+
 </html>
