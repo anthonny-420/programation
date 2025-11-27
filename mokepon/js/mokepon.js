@@ -122,34 +122,32 @@ function combat() {
 
 function checkLives() {
   if (enemyLives == 0) {
-    createFinalMessage("I've won the match");
+    createFinalMessage("You've won the match");
   } else if (playerLives == 0) {
     createFinalMessage("The enemy has won the match");
   }
 }
 
 function createMessage(battleResult) {
-  let messageSection = document.getElementById("messages");
+  let messageSection = document.getElementById("result");
+  let playerAttacks = document.getElementById("player-attacks");
+  let enemyAttacks = document.getElementById("enemy-attacks");
 
-  paragraph = document.createElement("p");
-  paragraph.innerHTML =
-    "your pet has attacked with " +
-    playerAttack +
-    ", the enemy's pet has attacked with " +
-    enemyAttack +
-    " " +
-    battleResult;
+  let newPlayerAttack = document.createElement("p");
+  let newEnemyAttack = document.createElement("p");
 
-  messageSection.appendChild(paragraph);
+  messageSection.innerHTML = battleResult;
+  newPlayerAttack.innerHTML = playerAttack;
+  newEnemyAttack.innerHTML = enemyAttack;
+
+  playerAttacks.appendChild(newPlayerAttack);
+  enemyAttacks.appendChild(newEnemyAttack);
 }
 
 function createFinalMessage(finalResult) {
-  let messageSection = document.getElementById("messages");
+  let messageSection = document.getElementById("result");
 
-  paragraph = document.createElement("p");
-  paragraph.innerHTML = finalResult;
-
-  messageSection.appendChild(paragraph);
+  messageSection.innerHTML = finalResult;
 
   // disable attack buttons
 
