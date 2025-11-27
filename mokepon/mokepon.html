@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MOKEPON!</title>
-  <script src="./js/mokepon.js"></script>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
@@ -16,23 +15,23 @@
 
     <div class="cards">
       <!--PETS-->
+      <input type="radio" name="pets" id="Hipodoge" />
       <label class="mokepon-cards" for="Hipodoge">
         <p>Hipodoge</p>
         <img src="./assets/mokepons_mokepon_hipodoge_attack.webp" alt="Hipodoge">
       </label>
-      <input type="radio" name="pets" id="Hipodoge" />
 
+      <input type="radio" name="pets" id="Capipepo" />
       <label class="mokepon-cards" for="Capipepo">
         <p>Capipepo</p>
         <img src="./assets/mokepons_mokepon_capipepo_attack.webp" alt="Capipepo">
       </label>
-      <input type="radio" name="pets" id="Capipepo" />
 
+      <input type="radio" name="pets" id="Ratigueya" />
       <label class="mokepon-cards" for="Ratigueya">
         <p>Ratigueya</p>
         <img src="./assets/mokepons_mokepon_ratigueya_attack.webp" alt="Ratigueya">
       </label>
-      <input type="radio" name="pets" id="Ratigueya" />
     </div>
 
     <button id="pet-button">Selection</button>
@@ -42,7 +41,7 @@
     <h1 id="title">Mokepon</h1>
     <h2 class="subtitle">Now, you must choose one attack:</h2>
 
-    <div>
+    <div class="attack-cards">
       <button id="fire-button" class="attack-buttons">fire 🔥</button>
       <button id="water-button" class="attack-buttons">water 💧</button>
       <button id="land-button" class="attack-buttons">land 🪴</button>
@@ -63,13 +62,13 @@
 
     <div class="attacks">
 
-      <div>
+      <div class="player-column">
         <p id="player-lives">3</p>
         <p id="pet-player"></p>
         <div id="player-attacks"></div>
       </div>
 
-      <div>
+      <div class="enemy-column">
         <p id="enemy-lives">3</p>
         <p id="pet-enemy"></p>
         <div id="enemy-attacks"></div>
@@ -79,6 +78,7 @@
 
   </section>
 
+  <script src="./js/mokepon.js"></script>
 </body>
 
 </html>

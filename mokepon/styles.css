@@ -27,7 +27,8 @@ body {
   font-size: 30px;
 }
 
-.cards {
+.cards,
+.attack-cards {
   display: flex;
   gap: 10px;
 }
@@ -55,13 +56,18 @@ body {
   height: 45px;
   border-radius: 20px;
   background-color: transparent;
-  border: 2px solid #87bac3;
+  border: 2px solid #d6f4ed;
   color: #ffff;
   font-family: "Poiret One", sans-serif;
 }
 
 input {
   display: none;
+}
+
+input:checked + label {
+  background-color: #87bac3;
+  color: #000;
 }
 
 #attack-selection {
@@ -83,7 +89,7 @@ input {
 
 #messages {
   width: 200px;
-  background-color: #d6f4ed;
+  background-color: #87bac3;
   height: 90px;
   padding: 10px 10px 10px 10px;
   margin-top: 13px;
@@ -116,4 +122,25 @@ input {
   display: grid;
   grid-template-columns: 100px 100px;
   text-align: center;
+  color: #ffffff;
+}
+
+#player-lives,
+#enemy-lives {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.player-column,
+.enemy-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 360px) {
+  .cards,
+  .attack-cards {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
