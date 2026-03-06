@@ -55,3 +55,29 @@ print(numbers)
 del numbers[4]
 del numbers[2:5]
 print(numbers)
+
+# copiar información de una variable a otra teniendo en cuenta que el espacio en la memoria ram sea el mismo.
+a = [1,2,3,4,5]
+b = a
+print (id(a))
+print (id(b))
+
+# si imprimimos cada una de las variables, veremos que cada una tiene la misma información, y si imprimimos esto acompañado de la función id veremos que tienen el mismo espacio en ram
+# lo que significa si yo realizo cambios en a se verán reflejados en b
+
+del a[0]
+print(a)
+print(b)
+
+# para que no nos ocurra esto de copiar la información de una variable a otra pero de manera dependiente, tenemos que hacer uso del METODO SLICING:
+
+c = a[:]
+print("A -->",a)
+print("C -->",c)
+print(id(a))
+print(id(c))
+a.append(6)
+print(a)
+print(c)
+print(type(numbers))
+
