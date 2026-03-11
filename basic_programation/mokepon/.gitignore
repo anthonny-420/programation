@@ -1,4 +1,2 @@
-# ignora la carpeta "assets"
-assets/
+
 # ignora las siguientes extensiones
-*.webp
