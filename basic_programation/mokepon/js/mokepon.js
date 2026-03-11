@@ -1,3 +1,34 @@
+// variables from gameStart function
+const sectionAttackSelection = document.getElementById("attack-selection");
+const sectionreboot = document.getElementById("reboot");
+const petPlayerButton = document.getElementById("pet-button");
+const FireButton = document.getElementById("fire-button");
+const WaterButton = document.getElementById("water-button");
+const LandButton = document.getElementById("land-button");
+const rebootButton = document.getElementById("reboot-button");
+
+// variables from petPlayerSelection function
+const sectionPetSelection = document.getElementById("pet-selection");
+const inputHipodoge = document.getElementById("Hipodoge");
+const inputCapipepo = document.getElementById("Capipepo");
+const inputRatigueya = document.getElementById("Ratigueya");
+const spanPetPlayer = document.getElementById("pet-player");
+
+// variables from petEnemySelection function
+const spanPetEnemy = document.getElementById("pet-enemy");
+
+// variables from combat function
+const spanEnemyLives = document.getElementById("enemy-lives");
+const spanPlayerLives = document.getElementById("player-lives");
+
+// variables from createMessage function
+const messageSection = document.getElementById("result");
+const enemyAttacks = document.getElementById("enemy-attacks");
+const playerAttacks = document.getElementById("player-attacks");
+
+// variables from createFinalMessage function
+const rebootsection = document.getElementById("reboot");
+
 let playerAttack;
 let enemyAttack;
 let battleResult;
@@ -5,38 +36,22 @@ let playerLives = 3;
 let enemyLives = 3;
 
 function gameStart() {
-  let sectionAttackSelection = document.getElementById("attack-selection");
   sectionAttackSelection.style.display = "none";
-
-  let sectionreboot = document.getElementById("reboot");
   sectionreboot.style.display = "none";
-
-  let petPlayerButton = document.getElementById("pet-button");
   petPlayerButton.addEventListener("click", petPlayerSelection);
-
   // attacks buttons
-  let FireButton = document.getElementById("fire-button");
   FireButton.addEventListener("click", fireAttack);
-  let WaterButton = document.getElementById("water-button");
   WaterButton.addEventListener("click", waterAttack);
-  let LandButton = document.getElementById("land-button");
   LandButton.addEventListener("click", landAttack);
-  let rebootButton = document.getElementById("reboot-button");
 
   // reboot button
   rebootButton.addEventListener("click", rebootGame);
 }
 
 function petPlayerSelection() {
-  let sectionPetSelection = document.getElementById("pet-selection");
   sectionPetSelection.style.display = "none";
 
-  let sectionAttackSelection = document.getElementById("attack-selection");
   sectionAttackSelection.style.display = "flex";
-  let inputHipodoge = document.getElementById("Hipodoge");
-  let inputCapipepo = document.getElementById("Capipepo");
-  let inputRatigueya = document.getElementById("Ratigueya");
-  let spanPetPlayer = document.getElementById("pet-player");
 
   if (inputHipodoge.checked) {
     spanPetPlayer.innerHTML = "Hipodoge";
@@ -53,7 +68,6 @@ function petPlayerSelection() {
 
 function petEnemySelection() {
   let randomPet = random(1, 3);
-  let spanPetEnemy = document.getElementById("pet-enemy");
   if (randomPet == 1) {
     spanPetEnemy.innerHTML = "Hipodoge";
   } else if (randomPet == 2) {
@@ -94,8 +108,6 @@ function randomEnemyAttack() {
 }
 
 function combat() {
-  let spanPlayerLives = document.getElementById("player-lives");
-  let spanEnemyLives = document.getElementById("enemy-lives");
 
   if (playerAttack == enemyAttack) {
     createMessage("!TIE¡");
@@ -129,9 +141,6 @@ function checkLives() {
 }
 
 function createMessage(battleResult) {
-  let messageSection = document.getElementById("result");
-  let playerAttacks = document.getElementById("player-attacks");
-  let enemyAttacks = document.getElementById("enemy-attacks");
 
   let newPlayerAttack = document.createElement("p");
   let newEnemyAttack = document.createElement("p");
@@ -145,20 +154,12 @@ function createMessage(battleResult) {
 }
 
 function createFinalMessage(finalResult) {
-  let messageSection = document.getElementById("result");
-
   messageSection.innerHTML = finalResult;
-
   // disable attack buttons
-
-  let FireButton = document.getElementById("fire-button");
   FireButton.disabled = true;
-  let WaterButton = document.getElementById("water-button");
   WaterButton.disabled = true;
-  let LandButton = document.getElementById("land-button");
   LandButton.disabled = true;
 
-  let rebootsection = document.getElementById("reboot");
   rebootsection.style.display = "block";
 }
 
