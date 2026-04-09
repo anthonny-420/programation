@@ -28,7 +28,11 @@ const playerAttacks = document.getElementById("player-attacks");
 
 // variables from createFinalMessage function
 const rebootsection = document.getElementById("reboot");
+// variable for identify the cards container
+const cardsContainer = document.getElementById("cards-container")
 
+let mokepons = [];
+let mokeponOptions;
 let playerAttack;
 let enemyAttack;
 let battleResult;
@@ -36,10 +40,11 @@ let playerLives = 3;
 let enemyLives = 3;
 
 class Mokepon {
-  constructor (name, photo, life, ) {
+  constructor (name, photo, life) {
     this.name = name;
     this.photo = photo;
     this.life = life;
+    this.attacks = [];
   }
 }
 
@@ -47,7 +52,44 @@ let hipodoge = new Mokepon("Hipodoge", "./assets/mokepons_mokepon_hipodoge_attac
 let capipepo = new Mokepon("Capipepo", "./assets/mokepons_mokepon_capipepo_attack.webp", 5);
 let ratigueya = new Mokepon("Ratigueya", "./assets/mokepons_mokepon_ratigueya_attack.webp", 5);
 
+hipodoge.attacks.push(
+  {name: "💧", id: "water-button"},
+  {name: "💧", id: "water-button"},
+  {name: "💧", id: "water-button"},
+  {name: "🔥", id: "fire-button"},
+  {name: "🪴", id: "land-button"}
+)
+
+capipepo.attacks.push(
+  {name: "🪴", id: "land-button"},
+  {name: "🪴", id: "land-button"},
+  {name: "🪴", id: "land-button"},
+  {name: "💧", id: "water-button"},
+  {name: "🔥", id: "fire-button"}
+)
+
+ratigueya.attacks.push(
+  {name: "🔥", id: "fire-button"},
+  {name: "🔥", id: "fire-button"},
+  {name: "🔥", id: "fire-button"},
+  {name: "💧", id: "water-button"},
+  {name: "🪴", id: "land-button"}
+)
+
+mokepons.push(hipodoge, capipepo, ratigueya);
+
+//attacks.push()
 function gameStart() {
+  mokepons.forEach((mokepon) => {
+  mokeponOptions = `
+      <input type="radio" name="pets" id=${mokepon.name} />
+      <label class="mokepon-cards" for=${mokepon.name}>
+        <p>${mokepon.name}</p>
+        <img src=${mokepon.photo} alt=${mokepon.name}>
+      </label>
+  `
+  cardsContainer.innerHTML = mokeponOptions;
+  })
   sectionAttackSelection.style.display = "none";
   sectionreboot.style.display = "none";
   petPlayerButton.addEventListener("click", petPlayerSelection);

@@ -31,3 +31,23 @@ values = personal.values()
 print(values)
 tuples = personal.items()
 print(tuples)
+
+#creacion de un diccionario de diccionarios
+dictionary = {
+    "pedro" : {
+        "last_name" : "gomez",
+        "age" : 30,
+        "height" : 1.87
+    },
+    "raquel" : {
+        "last_name" : "lopez",
+        "age" : 25,
+        "height" : 1.65
+    },
+    "uriel" : {
+        "last_name" : "garcia",
+        "age" : 28,
+        "height" : 1.72
+    }
+}
+print(dictionary["pedro"])
